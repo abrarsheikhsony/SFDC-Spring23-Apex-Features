@@ -1,0 +1,51 @@
+<apex:page controller="WithOutSharingKeywordClass">
+
+    <apex:form >
+
+    <apex:pageBlock title="public without sharing class WithOutSharingKeywordClass {}">
+    
+        <apex:outputLabel > without accessLevel parameter </apex:outputLabel>
+        <apex:pageBlockTable value="{!ListOfAccounts}" var="acct">
+            <apex:column value="{!acct.Id}"/>
+            <apex:column value="{!acct.Name}"/>
+            <apex:column value="{!acct.Industry}"/>
+        </apex:pageBlockTable>
+        
+        <br/><br/>
+
+        <apex:outputLabel > with accessLevel = WITH SYSTEM_MODE </apex:outputLabel>
+        <apex:pageBlockTable value="{!ListOfAccounts_With_SystemMode}" var="acct">
+            <apex:column value="{!acct.Id}"/>
+            <apex:column value="{!acct.Name}"/>
+            <apex:column value="{!acct.Industry}"/>
+        </apex:pageBlockTable>
+
+        <br/><br/>
+                
+        <apex:outputLabel > with accessLevel = WITH USER_MODE </apex:outputLabel>
+        <apex:pageBlockTable value="{!ListOfAccounts_With_UserMode}" var="acct">
+            <apex:column value="{!acct.Id}"/>
+            <apex:column value="{!acct.Name}"/>
+            <apex:column value="{!acct.Industry}"/>
+        </apex:pageBlockTable>
+
+        <br/><br/>   
+
+        <apex:outputLabel > with Security Enforced clause </apex:outputLabel>
+        <apex:pageBlockTable value="{!ListOfAccounts_With_SecurityEnforced}" var="acct">
+            <apex:column value="{!acct.Id}"/>
+            <apex:column value="{!acct.Name}"/>
+            <apex:column value="{!acct.Industry}"/>
+        </apex:pageBlockTable>
+        
+        <br/><br/>   
+        <apex:commandButton action="{!createAccount_IN_SYSTEM_MODE}" value="Create Account in System Mode"/>
+
+        <br/><br/>        
+        <apex:commandButton action="{!createAccount_IN_USER_MODE}" value="Create Account in User Mode"/>
+        
+    </apex:pageBlock>
+
+    </apex:form>
+
+</apex:page>
